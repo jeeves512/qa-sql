@@ -28,7 +28,7 @@ SELECT DISTINCT language FROM countrylanguage;
 
 SELECT name, gnp FROM country ORDER BY gnp DESC LIMIT 10;
 
-#SELECT co.name, COUNT(cl.language) FROM countrylanguage cl JOIN country co ON co.code=cl.countrycode;
+SELECT DISTINCT language, COUNT(language) FROM countrylanguage GROUP BY language ORDER BY count(language) DESC LIMIT 10;
 
 SELECT co.name FROM country co JOIN countrylanguage cl ON cl.countrycode=co.code WHERE cl.percentage>50 AND cl.language='german';
 
